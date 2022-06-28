@@ -45,3 +45,25 @@ def show_slice(disp_map, disp_str, slice_ind, clim=None):
     plt.suptitle(disp_str)
     plt.tight_layout()
     plt.show(block=False)
+
+def show_projection(disp_map, disp_str):
+    """
+    Projection
+    """
+    fig = plt.figure()
+    ax = fig.add_subplot(131)
+    im = ax.imshow(np.sum(disp_map, axis=0), origin='lower')
+    colorbar(ax,im)
+    ax.set_title('np.sum(axis=0)')
+    ax = fig.add_subplot(132)
+    im = ax.imshow(np.sum(disp_map, axis=1), origin='lower')
+    colorbar(ax,im)
+    ax.set_title('np.sum(axis=1)')
+    ax = fig.add_subplot(133)
+    im = ax.imshow(np.sum(disp_map, axis=2), origin='lower')
+    colorbar(ax,im)
+    ax.set_title('np.sum(axis=2)')
+
+    plt.suptitle(disp_str)
+    plt.tight_layout()
+    plt.show(block=False)
